@@ -89,7 +89,7 @@ def write_user(activeUser):
 
 def get_active_user(service):
     activeUser = service.data().realtime().get(
-        ids='ga:184849945',
+        ids='ga:148791093',
         metrics='rt:activeUsers',
         dimensions='rt:medium').execute()["totalsForAllResults"]['rt:activeUsers']
     return activeUser
