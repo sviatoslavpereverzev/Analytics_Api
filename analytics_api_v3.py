@@ -74,17 +74,17 @@ def print_results(results):
 
 
 previosActiveUser = 1
-def write_user(activeUser):
-    activeUser = int(activeUser)
-    global previosActiveUser
+def write_user(activeUser, time):
+    # activeUser = int(activeUser)
+    # global previosActiveUser
     # if previosActiveUser != activeUser:
     #     previosActiveUser = activeUser
     try:
         with open('data.txt', 'a') as file:
-            file.write("[{},{}],".format(time.time(), activeUser))
+            file.write("[{},{}],".format(time, activeUser))
     except:
         with open('data.txt', 'w') as file:
-            file.write("[{},{}],".format(time.time(), activeUser))
+            file.write("[{},{}],".format(time, activeUser))
 
 
 def get_active_user(service):
@@ -109,10 +109,12 @@ def main():
 
     profile_id = get_first_profile_id(service)
     # print_results(get_results(service, profile_id))
-    while True:
+    # while True:
+    for _ in range(1000):
         activeUser = get_active_user(service)
-        write_user(activeUser)
+        write_user(int(activeUser), int(time.time()))
         time.sleep(1)
+
 
 
 
